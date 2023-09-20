@@ -1,0 +1,253 @@
+@import '_variabels.scss';
+@import '_mixin.scss';
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local('Roboto'),
+       url('../assets/fonts/Roboto-Regular.woff2') format('woff2'),
+       url('../assets/fonts/Roboto-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: local('Roboto'),
+       url('../assets/fonts/Roboto-Medium.woff2') format('woff2'),
+       url('../assets/fonts/Roboto-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: local('Ubuntu'),
+       url('../assets/fonts/Ubuntu-Light.woff2') format('woff2'),
+       url('../assets/fonts/Ubuntu-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local('Ubuntu'),
+       url('../assets/fonts/Ubuntu-Regular.woff2') format('woff2'),
+       url('../assets/fonts/Ubuntu-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: local('Ubuntu'),
+       url('../assets/fonts/Ubuntu-Medium.woff2') format('woff2'),
+       url('../assets/fonts/Ubuntu-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: local('Ubuntu'),
+       url('../assets/fonts/Ubuntu-Bold.woff2') format('woff2'),
+       url('../assets/fonts/Ubuntu-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: local('WorkSans'), local('Work Sans'), local('Work-Sans'),
+       url('../assets/fonts/WorkSans-Light.woff2') format('woff2'),
+       url('../assets/fonts/WorkSans-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local('WorkSans'), local('Work Sans'), local('Work-Sans'),
+       url('../assets/fonts/WorkSans-Regular.woff2') format('woff2'),
+       url('../assets/fonts/WorkSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: local('WorkSans'), local('Work Sans'), local('Work-Sans'),
+       url('../assets/fonts/WorkSans-Medium.woff2') format('woff2'),
+       url('../assets/fonts/WorkSans-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: local('WorkSans'), local('Work Sans'), local('Work-Sans'),
+       url('../assets/fonts/WorkSans-SemiBold.woff2') format('woff2'),
+       url('../assets/fonts/WorkSans-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: local('WorkSans'), local('Work Sans'), local('Work-Sans'),
+       url('../assets/fonts/WorkSans-Bold.woff2') format('woff2'),
+       url('../assets/fonts/WorkSans-Bold.woff') format('woff');
+}
+
+body {
+  font-family: $ufont;
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.loader {
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  text-align: center;
+  &__img {
+    animation: 1s linear 0s infinite anim;
+  }
+}
+
+@keyframes anim {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(355deg);
+  }
+}
+
+.title {
+  font-weight: 700;
+  font-size: 34px;
+  font-family: $wfont;
+}
+
+.btn {
+  border: none;
+  border-radius: 7px;
+  background-color: $primary;
+  color: $white;
+  font-weight: 500;
+  font-family: $ufont;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s linear, background-color 0.2s linear;
+  cursor: pointer;
+  &:hover {
+    background-color: $hoverBg;
+  }
+  &:active {
+    background-color: $activeBg;
+  }
+  &[disabled] {
+    background-color: $grey5;
+    cursor: initial;
+  }
+}
+
+.input,
+.select {
+  padding: 10px 16px;
+  border: 1px solid $grey5;
+  border-radius: 7px;
+  outline: none;
+  transition: border-color 0.2s linear, background-color 0.2s linear;
+  &:hover,
+  &:focus {
+    border-color: $primary;
+    background-color: rgba($color: $info, $alpha: 0.05);
+  }
+}
+
+.white-box {
+  border-radius: 9px;
+  background-color: $white;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.grey-box {
+  border-radius: 9px;
+  background-color: $grey7;
+  // box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+  &__bulit {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: $primary;
+    color: $white;
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+    &:hover {
+      background-color: $hoverBg;
+    }
+    &:active {
+      background-color: $activeBg;
+    }
+    &[disabled] {
+      background-color: $grey5;
+      cursor: initial;
+    }
+  }
+  &__bulit-active {
+    background-color: $activeBg;
+  }
+  &__bulit-none,
+  &__btn-none {
+    display: none;
+  }
+  &__btn-all {
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      color: $primary;
+    }
+    &:active {
+      color: $info;
+    }
+  }
+
+}

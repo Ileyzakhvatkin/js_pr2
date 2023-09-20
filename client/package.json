@@ -1,0 +1,46 @@
+{
+  "private": true,
+  "author": "zakhvatkin",
+  "name": "js-advanced-client",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "chart.js": "^3.7.0",
+    "navigo": "^8.11.1",
+    "plotly.js-dist-min": "^2.8.3",
+    "redom": "^3.27.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/preset-env": "^7.16.11",
+    "@types/jest": "^27.4.0",
+    "babel-jest": "^27.5.1",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "cypress": "^9.4.1",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^26.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.5.1",
+    "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "^2.5.1",
+    "sass": "^1.49.0",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./",
+    "lint-fix": "eslint ./ --fix",
+    "lint:report": "eslint ./",
+    "build": "webpack --mode=production --env prod",
+    "dev": "webpack serve --mode=development --open",
+    "testjest": "jest"
+  }
+}

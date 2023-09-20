@@ -1,0 +1,43 @@
+@import '_variabels.scss';
+@import '_mixin.scss';
+
+.header {
+  background-color: $primary;
+  &__container {
+    display: flex;
+    align-items: center;
+    height: 100px;
+  }
+  &__logo-link {
+    margin-right: auto;
+  }
+  &__nav {
+    display: flex;
+  }
+  &__nav-item {
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+  &__nav-link {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 7px;
+    background-color: $white;
+    color: $primary;
+    text-decoration: none;
+    transition: color 0.2s linear, background-color 0.2s linear;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      background-color: $hoverBg;
+      color: $white;
+    }
+    &:active {
+      background-color: $activeBg;
+      color: $white;
+    }
+  }
+}
+
+
