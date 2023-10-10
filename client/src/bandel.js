@@ -10,13 +10,18 @@ import { createAccoutsList } from './js/render-list.js';
 import { createAccoutsDatails } from './js/render-account.js';
 import { createAccoutsHistory } from './js/render-history.js';
 import { createCurrencyPage } from './js/render-currency.js';
+import { create404 } from './js/render-404.js';
 
-const router = new Navigo('/');
+const root = null;
+const useHash = true; // Defaults to: false
+const hash = '#!'; // Defaults to: '#'
+const router = new Navigo(root, useHash, hash);
 export const body = window.document.body;
 export const main = el('main.main');
 
 window.document.head.append(
-  el('link', { rel: 'icon', type: 'image/svg+xml', href: favicon })
+  el('link', { rel: 'icon', type: 'image/svg+xml', href: favicon }),
+  el('base', { href: '/' })
 );
 
 // Получение данных из sessionStorage
@@ -38,23 +43,30 @@ if (tokenStorage === null || tokenStorage === 'exit') {
     setChildren(body, [headerUnlogin, loginApp]);
   });
 } else {
-  router.on('/', () => {
-    setChildren(body, [header, main]);
-    createAccoutsList();
-  });
-  router.on('/currency-exchange/', () => {
-    setChildren(body, [header, main]);
-    createCurrencyPage();
-  });
-  router.on(`/account/:id`, () => {
-    setChildren(body, [header, main]);
-    createAccoutsDatails();
-  });
-  router.on(`/account-history/:id`, () => {
-    setChildren(body, [header, main]);
-    createAccoutsHistory();
-  });
+  router.on({
+    '/': () => {
+      setChildren(body, [header, main]);
+      createAccoutsList();
+    },
+    '/currency-exchange/': () => {
+      setChildren(body, [header, main]);
+      createCurrencyPage();
+    },
+    '/account/:id': () => {
+      setChildren(body, [header, main]);
+      createAccoutsDatails();
+    },
+    '/account-history/:id': () => {
+      setChildren(body, [header, main]);
+      createAccoutsHistory();
+    }
+  }).resolve();
 }
-router.resolve();
+
+router.notFound(() => {
+  setChildren(body, [header, main]);
+  create404();
+}).resolve();
+
 // Выхд из приложеия
 exitApp(exitButton);
